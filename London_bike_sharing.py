@@ -110,11 +110,11 @@ def analysis():
 
     model.compile(loss='mae',optimizer='adam',metrics=['mae'])
     early_stop = EarlyStopping(monitor='loss',patience=5,mode='min')# 과적합이 될때 loss가 5번이 올라가면 멈춰야함
-   # history = model.fit(X_train,y_train,epochs=5,batch_size=1,validation_split=0.1,callbacks=[early_stop]) # 학습한 모형 넣기
+    history = model.fit(X_train,y_train,epochs=5,batch_size=1,validation_split=0.1,callbacks=[early_stop]) # 학습한 모형 넣기
     # validation_split은 검증용 데이터 훈련이 잘되고 있는지 확인하기 위함, 과적합 방지
 
-    #plt.plot(history.history['val_loss'])
-    #plt.plot(history.history['loss'])
+    plt.plot(history.history['val_loss'])
+    plt.plot(history.history['loss'])
     plt.title("loss")
     plt.xlabel("Epochs")
     plt.ylabel("loss")
