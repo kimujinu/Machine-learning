@@ -431,6 +431,7 @@ def titanic_solve():
 
     submission.to_csv('./first_submission.csv', index=False)
 
+
 class exec:
     def __init__(self):
         titanic_solve()
